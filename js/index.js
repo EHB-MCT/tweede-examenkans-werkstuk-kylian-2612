@@ -8,17 +8,34 @@ const artikels = {
             // console.log("inputValue is de value van de invulveld", inputValue);
             this.renderArtikelsVolgensKeyword(inputValue);
         });
-
+        document.getElementById("likes").addEventListener("change", e => {
+            let inputValue = document.getElementById("keyword").value;
+            if(inputValue == ""){
+                this.renderdata();
+            }else if(inputValue != ""){
+                this.renderArtikelsVolgensKeyword(inputValue);
+            }
+            console.log("checked");
+        });
     },
     renderdata() {
-
+        document.getElementById("content").innerHTML="";
         fetch(`https://thecrew.cc/news/read.php`)
             .then(response => {
                 console.log(response);
                 return response.json();
             })
             .then(data => {
-                console.log(data); 
+                console.log(data);
+                
+                var checkLikes = document.getElementById("likes");
+                if (checkLikes.checked === true){
+                    data.news.sort((a,b) => {
+                        return parseFloat(b.likes) - parseFloat(a.likes);
+                    });
+                }else if(checkLikes.checked === false){
+                    this.renderdata();
+                }
                 data.news.forEach(element => {
                     let html = `<article> 
                     <h1>${element.title}</h1>
@@ -68,6 +85,18 @@ const artikels = {
         .then(data => {
             console.log(data); 
             document.getElementById("content").innerHTML="";
+
+            var checkLikes = document.getElementById("likes");
+            if (checkLikes.checked === true){
+                console.log("waar");
+                data.news.sort((a,b) => {
+                    return parseFloat(a.likes) - parseFloat(b.likes);
+                });
+
+            }else if(checkLikes.checked === false){
+                console.log("vals");
+                this.renderArtikelsVolgensKeyword(auteur);
+            }
             data.news.forEach(element => {
                 let titleString = element.title;
                 let contentString = element.content;
@@ -80,7 +109,6 @@ const artikels = {
                     <p>${element.content}</p>
                 </article>`;
                 document.getElementById("content").insertAdjacentHTML("beforeend", html);
-
                 }
                 
 
@@ -90,5 +118,6 @@ const artikels = {
 
 
 };
+
 artikels.initfields();
 artikels.renderdata();
