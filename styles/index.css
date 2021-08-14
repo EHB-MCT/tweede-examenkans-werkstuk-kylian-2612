@@ -8,12 +8,34 @@ body {
   padding: 0;
   color: #0d0d0d;
 }
+
 main {
   margin: auto;
-  display: flex;
-}
-#container {
-  width: 100vw;
-  height:  100vh;
+  width: 80%;
 }
 
+/* #container {
+  width: 100vw;
+  height:  100vh;
+} */
+
+#form {
+  width: 100vw;
+  margin: 20px 0;
+}
+
+#content {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+#content article {
+  width: 350px;
+  padding: 20px 20px;
+
+}
+
+#content img {
+  width: 100%;
+}

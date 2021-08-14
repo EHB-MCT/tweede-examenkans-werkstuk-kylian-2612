@@ -1,16 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Eindopdracht</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="./styles/index.css">
-  </head>
-  <body>
-    <main>
-      <div id="container">
+
+<head>
+  <title>Eindopdracht</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="./styles/index.css">
+</head>
+
+<body>
+  <main>
+    <h1>Find Artricles by title and content</h1>
+    <!--  <div id="container">
         
-      </div>
-    </main>
-    <script type="module" src="./js/index.js"></script>
-  </body>
+      </div> -->
+    <form id="form">
+
+      <label>
+        Author name
+        <input id="keyword" type="text">
+      </label>
+      <input type="checkbox" value="filter volgens likes" id="likes" name="likes">
+      <label for="likes">filter volgens likes</label>
+      <button type="submit" id="search">Search articles</button>
+
+    </form>
+    <section id="content">
+
+    </section>
+  </main>
+  <script type="module" src="./js/index.js"></script>
+</body>
+
 </html>
