@@ -70,7 +70,8 @@ const artikels = {
             document.getElementById("content").innerHTML="";
             data.news.forEach(element => {
                 let titleString = element.title;
-                if(titleString.includes(auteur)){
+                let contentString = element.content;
+                if(titleString.includes(auteur) || contentString.includes(auteur)){
                     console.log("ok");
                     
                     let html = `<article> 
@@ -79,7 +80,10 @@ const artikels = {
                     <p>${element.content}</p>
                 </article>`;
                 document.getElementById("content").insertAdjacentHTML("beforeend", html);
+
                 }
+                
+
         });
     });
     }
