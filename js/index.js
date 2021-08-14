@@ -10,9 +10,9 @@ const artikels = {
         });
         document.getElementById("likes").addEventListener("change", e => {
             let inputValue = document.getElementById("keyword").value;
-            if(inputValue == ""){
+            if(inputValue == "" ){
                 this.renderdata();
-            }else if(inputValue != ""){
+            }else if(inputValue != "" ){
                 this.renderArtikelsVolgensKeyword(inputValue);
             }
             console.log("checked");
